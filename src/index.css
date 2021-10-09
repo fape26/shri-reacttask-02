@@ -243,14 +243,14 @@ label span {
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.5);
 }
-.modal input {
-  min-width: 100%;
-}
 .modal-content {
   min-width: 40%;
   border-radius: 6px;
   padding: 10px 20px;
   background-color: white
+}
+.modal-content input {
+  min-width: 100%;
 }
 
 @media screen and (max-width: 900px) {
