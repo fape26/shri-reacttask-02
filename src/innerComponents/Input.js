@@ -2,11 +2,12 @@ import React, { useMemo, useCallback } from 'react';
 import { Delete } from '../svgAndIcons/Icons';
 
 export const Input = ({ labelName, placeholder, required, name, onChange, value , marginBottom}) => {
-    console.log('comp rendered');
   
+    // const dispatch = useDispatch();
  
     const handleDeleteClick = useCallback(e => {
         e.preventDefault();
+        // dispatch(keepInputValues({[e.target.name]: ''}))
         onChange({ target: { value: '', name }});
     }, [name])
 

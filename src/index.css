@@ -249,6 +249,9 @@ label span {
   padding: 10px 20px;
   background-color: white
 }
+.modal-content input {
+  min-width: 100%;
+}
 
 @media screen and (max-width: 900px) {
   .btn.default #play, .btn.default #cog {

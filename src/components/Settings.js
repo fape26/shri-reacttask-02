@@ -3,20 +3,25 @@ import { Button } from '../innerComponents/Button';
 import { useHistory } from 'react-router';
 import { Input } from '../innerComponents/Input';
 import Footer from './Footer';
+import { useSelector, useDispatch } from 'react-redux';
+import {saveSettings, keepInputValues, resetInputValues} from '../redux/action';
 
 
 const rand = (min, max) => Math.floor(Math.random() * (max - min) + min);
 
+
 const Settings = () => {
     const history = useHistory();
+    const dispatch = useDispatch();
     const [isLoading, setIsLoading] = useState(false);
     const [errors, setErrors] = useState({});
-    const [inputs, setInputs] = useState ({
-        git: '',
-        command: '',
-        branch: '',
-        timer: ''
-    });
+    // const [inputs, setInputs] = useState ({
+    //     git: '',
+    //     command: '',
+    //     branch: '',
+    //     timer: ''
+    // });
+    const inputs = useSelector(({temporary}) => temporary);
 
     const handleSubmit = useCallback(e => {
         setIsLoading(true)
@@ -42,10 +47,10 @@ const Settings = () => {
             console.error('mistakes were made');
         } else {
             console.log('ok');
-            localStorage.setItem('settings', JSON.stringify(inputs));
-            
+            dispatch(saveSettings(inputs));
             setTimeout(function() {
                 console.error('Server Error');
+                dispatch(resetInputValues());
                 setIsLoading(false);
                 history.push('/')
                 return {response: false}
@@ -54,10 +59,11 @@ const Settings = () => {
     }, [inputs])
 
     const onChange = useCallback((e) =>{
-        setInputs({
-            ...inputs,
-            [e.target.name]: e.target.value
-        })
+        // setInputs({
+        //     ...inputs,
+        //     [e.target.name]: e.target.value
+        // })
+        dispatch(keepInputValues({[e.target.name]: e.target.value}));
     }, [inputs])
 
     const handleCancel = useCallback(() => {
