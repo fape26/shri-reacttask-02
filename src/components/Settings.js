@@ -9,7 +9,6 @@ import {saveSettings, keepInputValues, resetInputValues} from '../redux/action';
 
 const rand = (min, max) => Math.floor(Math.random() * (max - min) + min);
 
-
 const Settings = () => {
     const history = useHistory();
     const dispatch = useDispatch();
@@ -75,7 +74,7 @@ const Settings = () => {
         <div className="header">
             <h2>School CI server</h2>
         </div>
-        <form onSubmit={handleSubmit} className="settings-container">                                                 {/*css for settings block */}
+        <form onSubmit={handleSubmit} className="settings-container"> 
             <h3>Settings</h3>
             <p>Configure repository connection and synchronization settings.</p>
             <Input value={inputs.git} onChange={onChange} name='git' labelName='GitHub repository' required={true}

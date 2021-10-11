@@ -8,7 +8,7 @@ const Footer = () => {
                 <span><a href="/">Learning</a></span>
                 <span><a href="/">Русская версия</a></span>
             </div>
-            <span><a href="/">© 2020 Your Name</a></span>
+            <span><a href="/">© 2020 lex8329</a></span>
         </div>
     )
 }

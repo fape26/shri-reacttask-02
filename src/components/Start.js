@@ -3,6 +3,7 @@ import { useHistory } from 'react-router';
 import { Button } from '../innerComponents/Button';
 import { Logo } from '../svgAndIcons/Icons';
 import Footer from './Footer';
+import Header from './Header';
 
 
 const Start = () => {
@@ -14,10 +15,9 @@ const Start = () => {
 
     return (
     <>
-        <div className="header">
-            <h2>School CI server</h2>
+        <Header headerContent='School CI server'>
             <Button btnClick={handleOpenSettings} cssClass="default" content='Settings' height='28px' svg='cog'></Button>
-        </div>
+        </Header>
         <div className="main-start">
             <Logo></Logo>
             <p>Configure repository connection and synchronization settings</p>

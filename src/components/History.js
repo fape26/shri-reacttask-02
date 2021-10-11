@@ -4,6 +4,7 @@ import HistoryItem from '../innerComponents/HistoryItem';
 import Footer from './Footer';
 import { useHistory } from 'react-router';
 import Modal from '../innerComponents/Modal';
+import Header from './Header';
 
 const data = [
     {
@@ -99,13 +100,12 @@ const History = () => {
 
     return (
         <>
-            <div className="header history">
-                <h2>philip1967/my-aw esome-repo-with-long-long-long-repo-name</h2>
+            <Header headerContent='philip1967/my-aw esome-repo-with-long-long-long-repo-name' addCss='history'>
                 <div className="btns-svg">
                     <Button btnClick={useCallback(() => setShowModal(true), [])} cssClass="default" content='Run build' height='28px' svg='play'></Button>
                     <Button btnClick={handleOpenSettings} cssClass="default" height='28px' svg='cog'></Button>
                 </div>
-            </div>
+            </Header>
             <div className="main-history">
                 <div className="history-list">
                     {data.map((item, index) => (

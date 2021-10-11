@@ -1,13 +1,25 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Button } from './Button';
 import { Input } from './Input';
 
 const Modal = (props) => {
     const [commitHash, setCommitHash] = useState('');
 
+    const handleCloseModal = useCallback(e => {
+        if (e.key === "Escape") {
+            props.onClose();
+        }
+    },[])
+
+
+    useEffect(() => {
+        document.addEventListener("keydown", handleCloseModal)
+        return function cleanup() {
+            document.removeEventListener("keydown", handleCloseModal);
+        }
+    },[])
 
     const onChange = useCallback(e => setCommitHash(e.target.value), [])
-
     if (!props.showModal) {
         return null;
     }
