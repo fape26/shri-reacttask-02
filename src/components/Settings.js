@@ -5,6 +5,7 @@ import { Input } from '../innerComponents/Input';
 import Footer from './Footer';
 import { useSelector, useDispatch } from 'react-redux';
 import {saveSettings, keepInputValues, resetInputValues} from '../redux/action';
+import Header from './Header';
 
 
 const rand = (min, max) => Math.floor(Math.random() * (max - min) + min);
@@ -71,9 +72,7 @@ const Settings = () => {
 
     return (
         <>
-        <div className="header">
-            <h2>School CI server</h2>
-        </div>
+        <Header headerContent='School CI server'></Header>
         <form onSubmit={handleSubmit} className="settings-container"> 
             <h3>Settings</h3>
             <p>Configure repository connection and synchronization settings.</p>
